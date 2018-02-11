@@ -18,10 +18,16 @@ html {
     text-transform: uppercase;
   }
   h1 {
-    font-size: 56px;
+    font-size: 40px;
+    @media (min-width: $tablet) {
+      font-size: 56px;
+    }
   }
   h2 {
-    font-size: 32px;
+    font-size: 24px;
+    @media (min-width: $tablet) {
+      font-size: 32px;
+    }
   }
   .wolf {
     width: 300px;
@@ -31,8 +37,11 @@ html {
 .container {
   padding: 20px;
   h3 {
-    font-size: 24px;
+    font-size: 20px;
     padding: 48px 0;
+    @media (min-width: $tablet) {
+      font-size: 24px;
+    }
   }
   .rules {
     display: grid;
