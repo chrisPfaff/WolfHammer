@@ -152,7 +152,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, "body {\n  background: blue;\n  text-align: left; }\n", ""]);
+exports.push([module.i, "html {\n  background: linear-gradient(green, yellow);\n  background-repeat: no-repeat;\n  background-size: 100%;\n  text-align: left;\n  padding: 0;\n  margin: 0;\n  text-align: center; }\n  html h1,\n  html h2 {\n    text-transform: uppercase; }\n\n.container {\n  padding: 20px; }\n  .container .rules {\n    display: grid;\n    grid-gap: 10px;\n    grid-template-columns: repeat(1, 1fr);\n    align-items: center; }\n    @media (min-width: 768px) {\n      .container .rules {\n        grid-template-columns: repeat(2, 1fr); } }\n    @media (min-width: 1024px) {\n      .container .rules {\n        grid-template-columns: repeat(4, 1fr); } }\n    .container .rules p {\n      font-weight: 700; }\n", ""]);
 
 // exports
 
