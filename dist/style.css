@@ -11,17 +11,26 @@ html {
   html h2 {
     text-transform: uppercase; }
   html h1 {
-    font-size: 56px; }
+    font-size: 40px; }
+    @media (min-width: 768px) {
+      html h1 {
+        font-size: 56px; } }
   html h2 {
-    font-size: 32px; }
+    font-size: 24px; }
+    @media (min-width: 768px) {
+      html h2 {
+        font-size: 32px; } }
   html .wolf {
     width: 300px; }
 
 .container {
   padding: 20px; }
   .container h3 {
-    font-size: 24px;
+    font-size: 20px;
     padding: 48px 0; }
+    @media (min-width: 768px) {
+      .container h3 {
+        font-size: 24px; } }
   .container .rules {
     display: grid;
     grid-gap: 40px;
