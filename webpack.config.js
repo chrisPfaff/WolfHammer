@@ -20,7 +20,19 @@ module.exports = {
         }, {
           loader: "sass-loader"
         }]
-      }
+      },
+      { test: /\.(jpe?g|png|gif|svg)$/i, loader: "url-loader?name=app/img/[name].[ext]" },
+
+      // {
+      //   test: /\.(png|jp(e*)g|svg)$/,
+      //   use: [{
+      //     loader: 'url-loader',
+      //     options: {
+      //       limit: 8000, // Convert images < 8kb to base64 strings
+      //       name: 'img/[hash]-[name].[ext]'
+      //     }
+      //   }]
+      // }
     ]
   },
   resolve: {
