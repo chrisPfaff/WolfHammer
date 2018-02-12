@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "./";
+/******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
@@ -85,47 +85,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 if (false) {
   module.hot.accept();
-}
-
-console.log('The Wolf is coming!');
-var rules = document.querySelectorAll('.rule');
-var scoreBoard = document.querySelector('.score');
-rules.forEach(function (rule) {
-  return rule.addEventListener('click', getRule);
-});
-
-function getRule() {
-  var dots = 0;
-  var first = 'opening';
-  var second = 'open';
-  this.classList.toggle('active');
-  var activePoints = this.classList.contains('active');
-  var array = Array.from(rules);
-  array.filter(function (rules) {
-    if (rules.classList.contains('active')) {
-      var _ref = [second, first];
-      first = _ref[0];
-      second = _ref[1];
-      console.log(first);
-      dots = dots + 1;
-      scoreBoard.innerHTML = "Score: ".concat(dots);
-    }
-  });
-}
-
-function getActive() {
-  var dots = 0;
-
-  if (activePoints) {
-    console.log(active);
-  }
-
-  var activePoints = this.classList.contains('active');
-
-  if (activePoints) {
-    dots++;
-    console.log(dots);
-  }
 }
 
 /***/ }),
