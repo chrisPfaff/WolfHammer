@@ -16,7 +16,7 @@ html {
       html h1 {
         font-size: 56px; } }
   html h2 {
-    font-size: 24px; }
+    font-size: 20px; }
     @media (min-width: 768px) {
       html h2 {
         font-size: 32px; } }
@@ -27,10 +27,13 @@ html {
   padding: 20px; }
   .container h3 {
     font-size: 20px;
-    padding: 48px 0; }
+    padding: 48px 0 0; }
     @media (min-width: 768px) {
       .container h3 {
         font-size: 24px; } }
+  .container .score {
+    font-size: 40px;
+    padding-bottom: 32px; }
   .container .rules {
     display: grid;
     grid-gap: 40px;
@@ -44,13 +47,40 @@ html {
       .container .rules {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); } }
     .container .rules .rule {
-      width: 250px;
-      height: 250px;
+      width: 150px;
+      height: 150px;
       background-color: rgba(0, 0, 0, 0.7);
       display: grid;
       place-items: center;
+      transition: width 0.2s, height 0.6s;
+      position: relative;
       color: #eee; }
+      .container .rules .rule h4 {
+        font-size: 20px; }
+      .container .rules .rule.active {
+        background-color: red;
+        width: 250px;
+        height: 250px; }
+        .container .rules .rule.active > * {
+          transform: translateX(0%); }
+        .container .rules .rule.active h4 {
+          position: absolute;
+          top: 0; }
+        .container .rules .rule.active h6,
+        .container .rules .rule.active p {
+          display: block;
+          position: absolute;
+          transition: all 0.5s;
+          width: 80%; }
+        .container .rules .rule.active h6 {
+          top: 25px;
+          font-size: 20px; }
+        .container .rules .rule.active p {
+          bottom: 0;
+          font-size: 14px; }
+      .container .rules .rule h6,
+      .container .rules .rule p {
+        display: none;
+        transform: translateX(-200%); }
       .container .rules .rule:hover {
         cursor: pointer; }
-    .container .rules p {
-      font-weight: 700; }
