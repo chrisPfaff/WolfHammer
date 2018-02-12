@@ -14,26 +14,18 @@ function getRule() {
   const activePoints = this.classList.contains('active');
 
   const array = Array.from(rules);
-  array.filter(rules => {
+  array.filter(function(rules) {
     if (rules.classList.contains('active')) {
       [first, second] = [second, first];
       console.log(first);
       dots = dots + 1;
       scoreBoard.innerHTML = `Score: ${dots}`;
     }
-    // this.classList.toggle('opening');
-    // setTimeout(() => {
-    //   this.classList.toggle('open');
-    // });
   });
-  // console.log(array);
-  // Array.from(rules.filter(active => active.classList.contains('active')));
 }
 
 function getActive() {
   let dots = 0;
-
-
 
   if (activePoints) {
     console.log(active)
