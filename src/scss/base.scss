@@ -78,38 +78,42 @@ html {
       &.active {
         background-color: red;
         width: 250px;
-        height: 250px;
+        height: auto;
+        padding: 10px;
         &>* {
           transform: translateX(0%);
         }
-        h4 {
-          position: absolute;
-          top: 0;
-        }
-        h6,
+        .dots,
         p {
           display: block;
-          position: absolute;
           transition: all 0.5s;
           width: 80%;
         }
-        h6 {
-          top: 25px;
+        .dots {
           font-size: $font_medium;
+          height: 40px;
+          border: 1px solid gray;
+          margin: 10px 0;
+          &:hover {
+            cursor: pointer;
+          }
         }
         p {
-          bottom: 0;
           font-size: $font_small;
         }
       }
-      h6,
+      .dots,
       p {
         display: none;
-        transform: translateX(-200%);
       }
       &:hover {
         cursor: pointer;
       }
     }
   }
+}
+
+.saddam {
+  background: url('~/img/saddam.jpg');
+  object-fit: cover;
 }
