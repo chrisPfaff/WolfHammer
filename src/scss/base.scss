@@ -64,7 +64,7 @@ html {
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
     .rule {
-      width: 150px;
+      width: 80%;
       height: 150px;
       background-color: $boxbg;
       display: grid;
@@ -72,6 +72,9 @@ html {
       transition: width 0.2s, height 0.6s;
       position: relative;
       color: $white;
+      @media (min-width: $tablet) {
+        width: 150px;
+      }
       h4 {
         font-size: $font_medium;
       }
