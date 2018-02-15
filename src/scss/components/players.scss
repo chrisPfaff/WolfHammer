@@ -2,16 +2,29 @@
 @import '../../scss/mixins';
 .player_selection {
   display: grid;
-  grid-template-columns: repeat(5, 150px);
   justify-content: center;
   place-items: center;
+  grid-template-columns: repeat(2, 1fr);
   padding: 40px 0;
+  @media (min-width: $tablet) {
+    grid-template-columns: repeat(5, 1fr);
+  }
   .submit {
     border: 2px solid black;
     padding: 20px;
-    width: 115px;
+    width: 100%;
+    margin-top: 40px;
+    grid-column: span 2 / -1;
+    grid-template-columns: 1fr fit-content(200px);
     text-transform: uppercase;
     transition: 0.3s ease;
+    @media(min-width: $tablet) {
+      padding: 20px;
+      width: 115px;
+      margin-top: 0;
+      grid-column: span 1;
+      grid-template-columns: none;
+    }
     &:hover {
       cursor: pointer;
       background-color: $black;
