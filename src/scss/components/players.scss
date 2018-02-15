@@ -7,14 +7,16 @@
   grid-template-columns: repeat(2, 1fr);
   padding: 40px 0;
   grid-row-gap: 20px;
+  background: $boxbg;
+  color: $white;
   @media (min-width: $tablet) {
     grid-template-columns: repeat(5, 1fr);
   }
   .submit {
     border: 2px solid black;
     padding: 20px;
-    width: 100%;
-    margin-top: 40px;
+    width: 80%;
+    margin-top: 20px;
     grid-column: span 2 / -1;
     grid-template-columns: 1fr fit-content(200px);
     text-transform: uppercase;
@@ -23,7 +25,7 @@
     @media(min-width: $tablet) {
       padding: 20px;
       width: 175px;
-      margin-top: 0;
+      margin: 0 40px 0;
       grid-column: span 1;
       grid-template-columns: none;
       align-self: baseline;
