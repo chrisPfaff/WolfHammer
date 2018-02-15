@@ -22,10 +22,11 @@
     background-color: $white;
     @media(min-width: $tablet) {
       padding: 20px;
-      width: 115px;
+      width: 175px;
       margin-top: 0;
       grid-column: span 1;
       grid-template-columns: none;
+      align-self: baseline;
     }
     &:hover {
       cursor: pointer;
