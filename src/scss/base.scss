@@ -64,9 +64,6 @@ html {
       transition: width 0.2s, height 0.6s;
       position: relative;
       color: $white;
-      @media (min-width: $tablet) {
-        width: 150px;
-      }
       h4 {
         font-size: $font_medium;
       }
