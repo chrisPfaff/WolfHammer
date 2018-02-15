@@ -54,19 +54,17 @@
         animation-duration: 1s;
         animation-timing-function: ease;
         animation-name: checkmark;
-        transform-origin: right top;
-        transform: rotate(45deg);
-        animation-fill-mode: backwards;
+        transform-origin: bottom left;
+        transform: rotateY(-360deg) rotateX(0deg) rotate(45deg); //transform: rotate(45deg);
+        animation-fill-mode: forwards;
         content: "";
         height: $check-height;
         width: $check-width;
         border: solid $black;
         border-width: 0 5px 5px 0;
         position: absolute;
-        margin-left: -7px;
-        left: 24px;
-        top: 3px;
-        margin-top: 10px;
+        margin-left: -13px;
+        margin-top: -14px;
       }
     }
     .name {

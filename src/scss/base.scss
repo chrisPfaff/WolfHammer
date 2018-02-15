@@ -70,7 +70,9 @@ html {
         font-size: $font_medium;
       }
       &.active {
-        background-color: red;
+        background-color: $black;
+        border: 2px solid $white;
+        box-shadow: 0 5px 14px 0 $boxbg; //box-shadow: 4px 4px 4px $boxbg;
         width: 200px;
         height: auto;
         padding: 10px;
