@@ -66,6 +66,8 @@ html {
       color: $white;
       h4 {
         font-size: $font_medium;
+        letter-spacing: 2px;
+        text-transform: uppercase;
       }
       &.active {
         background-color: $black;
