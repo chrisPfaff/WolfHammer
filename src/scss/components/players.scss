@@ -58,14 +58,12 @@
     input[type="checkbox"]:checked+label {
       position: relative;
       &::after {
-        opacity: 1;
-        animation-delay: 100ms;
-        animation-duration: 1s;
-        animation-timing-function: ease;
-        animation-name: checkmark;
+        opacity: 1; // animation-delay: 100ms;
+        // animation-duration: 1s;
+        // animation-timing-function: ease; //animation-name: checkmark;
         transform-origin: bottom left;
         transform: rotateY(-360deg) rotateX(0deg) rotate(45deg); //transform: rotate(45deg);
-        animation-fill-mode: forwards;
+        // animation-fill-mode: forwards;
         content: "";
         height: $check-height;
         width: $check-width;
