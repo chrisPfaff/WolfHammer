@@ -84,9 +84,10 @@
 }
 
 .set_teams {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-transform: uppercase;
   .teamz {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    text-transform: uppercase;
+    font-size: 18px;
   }
 }
