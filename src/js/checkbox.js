@@ -39,6 +39,16 @@ function removeVal(arr, val) {
 }
 
 submit.addEventListener("click", () => {
+  const checkboxes = document.querySelectorAll('input');
+  const paused = submit.classList.toggle('paused');
+
+  if (paused) {
+    submit.textContent = 'edit teams';
+    checkboxes.forEach(checkbox => checkbox.setAttribute('disabled', true));
+  } else {
+    submit.textContent = 'Set Teams';
+    checkboxes.forEach(checkbox => checkbox.removeAttribute('disabled'));
+  }
   const newArray = Array.from(array);
   let total = 0;
 
