@@ -83,7 +83,8 @@
 
 .set_teams {
   .teamz {
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     text-transform: uppercase;
   }
 }
