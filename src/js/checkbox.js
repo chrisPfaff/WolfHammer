@@ -1,35 +1,32 @@
 const submit = document.querySelector(".submit");
-const set_teams = document.querySelector('.set_teams');
+const setTeams = document.querySelector('.set_teams');
 
 let array = [];
 
 document.addEventListener("click", event => {
   if (!array.includes(event.target) && event.target.matches("input")) {
-    countCheckboxes(event.target, set_teams);
+    countCheckboxes(event.target, setTeams);
   } else {
     removeVal(array, event.target);
   }
   return array;
 });
 
-function countCheckboxes(check_value, parentElement) {
-  if (check_value.checked) {
+function countCheckboxes(checkValue, parentElement) {
+  if (checkValue.checked) {
     var newElem = document.createElement('p');
-    var name = document.createTextNode(check_value.name);
-    // name = JSON.stringify(name);
+    var name = document.createTextNode(checkValue.name);
     newElem.classList.add('teamz');
     newElem.appendChild(name);
     parentElement.appendChild(newElem);
-  } else if (!check_value.checked) {
-    const teamz = set_teams.querySelectorAll('.teamz');
+  } else if (!checkValue.checked) {
+    const teamz = setTeams.querySelectorAll('.teamz');
 
     teamz.forEach(team => {
-      if (check_value.name === team.textContent) {
+      if (checkValue.name === team.textContent) {
       parentElement.removeChild(team);
     }});
   }
-    // if (teamz.textContent === check_value.checked)
-    // parentElement.remove(teamz[0]);
 }
 
 function removeVal(arr, val) {
@@ -38,9 +35,10 @@ function removeVal(arr, val) {
   }
 }
 
-submit.addEventListener("click", () => {
+submit.addEventListener("click", (event) => {
   const checkboxes = document.querySelectorAll('input');
   const paused = submit.classList.toggle('paused');
+  event.preventDefault();
 
   if (paused) {
     submit.textContent = 'edit teams';
@@ -49,6 +47,8 @@ submit.addEventListener("click", () => {
     submit.textContent = 'Set Teams';
     checkboxes.forEach(checkbox => checkbox.removeAttribute('disabled'));
   }
+
+  console.log(setTeams);
   const newArray = Array.from(array);
   let total = 0;
 
