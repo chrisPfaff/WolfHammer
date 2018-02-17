@@ -6,13 +6,6 @@ let array = [];
 document.addEventListener("click", event => {
   if (!array.includes(event.target) && event.target.matches("input")) {
     countCheckboxes(event.target, set_teams);
-    console.log(typeof event.target);
-    if (!event.target.checked) {
-      set_teams.removeChild(event.target.lastChild);
-    }
-    // if (array.length >= 3) {
-    //   return;
-    // }
   } else {
     removeVal(array, event.target);
   }
@@ -20,13 +13,23 @@ document.addEventListener("click", event => {
 });
 
 function countCheckboxes(check_value, parentElement) {
-  const newElem = document.createElement('p');
-  const name = document.createTextNode(check_value.name);
-  // name = JSON.stringify(name);
-  newElem.classList.add('teamz');
+  if (check_value.checked) {
+    var newElem = document.createElement('p');
+    var name = document.createTextNode(check_value.name);
+    // name = JSON.stringify(name);
+    newElem.classList.add('teamz');
+    newElem.appendChild(name);
+    parentElement.appendChild(newElem);
+  } else if (!check_value.checked) {
+    const teamz = set_teams.querySelectorAll('.teamz');
 
-  newElem.appendChild(name);
-  parentElement.appendChild(newElem);
+    teamz.forEach(team => {
+      if (check_value.name === team.textContent) {
+      parentElement.removeChild(team);
+    }});
+  }
+    // if (teamz.textContent === check_value.checked)
+    // parentElement.remove(teamz[0]);
 }
 
 function removeVal(arr, val) {
