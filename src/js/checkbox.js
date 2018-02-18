@@ -1,18 +1,20 @@
 const submit = document.querySelector(".submit");
 const setTeams = document.querySelector('.set_teams');
+const checkboxes = document.querySelectorAll('input');
+const teamz = setTeams.querySelectorAll('.teamz');
 
-let array = [];
+let teams = [];
 
 document.addEventListener("click", event => {
-  if (!array.includes(event.target) && event.target.matches("input")) {
-    countCheckboxes(event.target, setTeams);
+  if (!teams.includes(event.target) && event.target.matches("input")) {
+    createTeams(event.target, setTeams);
   } else {
-    removeVal(array, event.target);
+    removeTeam(checkboxes, event.target);
   }
-  return array;
+  return teams;
 });
 
-function countCheckboxes(checkValue, parentElement) {
+function createTeams(checkValue, parentElement) {
   if (checkValue.checked) {
     var newElem = document.createElement('p');
     var name = document.createTextNode(checkValue.name);
@@ -20,8 +22,6 @@ function countCheckboxes(checkValue, parentElement) {
     newElem.appendChild(name);
     parentElement.appendChild(newElem);
   } else if (!checkValue.checked) {
-    const teamz = setTeams.querySelectorAll('.teamz');
-
     teamz.forEach(team => {
       if (checkValue.name === team.textContent) {
       parentElement.removeChild(team);
@@ -29,16 +29,38 @@ function countCheckboxes(checkValue, parentElement) {
   }
 }
 
-function removeVal(arr, val) {
+function removeTeam(arr, val) {
   for (var i = 0; i < arr.length; i++) {
     if (arr[i] == val) arr.splice(i, 1);
   }
 }
 
+function settingTeams(arr, target) {
+  const players = Array.from(document.querySelectorAll('input:checked')).map(input => {
+    return {
+      id: input.id,
+      name: input.name
+    };
+  });
+
+  if (players.length) {
+    teams.push({
+      players,
+      score: 0,
+      id: teams.length
+    })
+    console.log(players)
+  } else {
+      console.log('delete', target.id);
+      removeTeam(arr, target);
+  }
+}
+
+
 submit.addEventListener("click", (event) => {
-  const checkboxes = document.querySelectorAll('input');
   const paused = submit.classList.toggle('paused');
   event.preventDefault();
+  settingTeams(checkboxes, event.target.id)
 
   if (paused) {
     submit.textContent = 'edit teams';
@@ -48,19 +70,64 @@ submit.addEventListener("click", (event) => {
     checkboxes.forEach(checkbox => checkbox.removeAttribute('disabled'));
   }
 
-  console.log(setTeams);
-  const newArray = Array.from(array);
-  let total = 0;
+  // console.log(setTeams);
+  // const newArray = Array.from(array);
+  // let total = 0;
 
-  newArray.map((item, i) => {
-    total += Number(item.value);
-    if (newArray.length === 3) {
-      console.log('lone wolf', total)
-      total = total * 3;
-      return total;
-    } else {
-      console.log(total);
-      return total;
-    }
-  })
+  // newArray.map((item, i) => {
+  //   total += Number(item.value);
+  //   if (newArray.length === 3) {
+  //     console.log('lone wolf', total)
+  //     total = total * 3;
+  //     return total;
+  //   } else {
+  //     console.log(total);
+  //     return total;
+  //   }
+  // })
 });
+
+
+// const teams = [];
+
+// const updateTeamData = () => {
+//   document.querySelectorAll('#team-data')[0].innerHTML = JSON.stringify(teams);
+// }
+
+// const updateTeamSelect = () => {
+//   const teamSelect = document.querySelectorAll('#active-team')[0];
+//   teamSelect.innerHTML = '';
+
+//   teams.forEach(item => {
+//     const teamOption = document.createElement('option');
+//     teamOption.value = item.id;
+//     teamOption.innerText = `Team ${item.id}`;
+//     teamSelect.appendChild(teamOption);
+//   });
+// }
+
+// document.querySelectorAll('#create')[0].addEventListener('click', e => {
+//   const players = Array.from(document.querySelectorAll('input:checked')).map(input => { return { id: input.dataset.id, name: input.dataset.name }; });
+
+//   if (players.length) teams.push({
+//     players,
+//     score: 0,
+//     id: teams.length,
+//   });
+
+//   updateTeamData();
+//   updateTeamSelect();
+// });
+
+// BUTTONS
+// Array.from(document.querySelectorAll('.update-score')).forEach(item => {
+//   item.addEventListener('click', e => {
+//     if (teams.length) {
+//       const activeTeamId = parseInt(document.querySelectorAll('#active-team')[0].value);
+//       const activeTeam = teams.filter(team => team.id === activeTeamId)[0];
+
+//       activeTeam.score += parseInt(e.target.dataset.scoreMod);
+//       updateTeamData();
+//     }
+//   });
+// });
