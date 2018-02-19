@@ -4,6 +4,7 @@ const checkboxes = document.querySelectorAll('input');
 const teamz = setTeams.querySelectorAll('.teamz');
 const scoreBoard = document.querySelector('.score');
 const dots = Array.from(document.querySelectorAll('.dots'));
+const teamSelect = document.querySelectorAll('.active_team')
 
 let teams = [];
 let score = 0;
@@ -11,8 +12,9 @@ let score = 0;
 
 const checkboxDOMselect = (checkValue, parentElement) => {
   if (checkValue.checked) {
-    var newElem = document.createElement('p');
-    var name = document.createTextNode(`${checkValue.name} has 0 dots.`);
+    const newElem = document.createElement('p');
+    //var name = document.createTextNode(`${checkValue.name} has 0 dots.`);
+    const name = document.createTextNode(checkValue.name);
     newElem.classList.add('teamz');
     newElem.appendChild(name);
     parentElement.appendChild(newElem);
@@ -33,12 +35,13 @@ const createTeams = (arr, target) => {
       score: 0,
       id: teams.length
     })
-    console.log('players', players);
+    updateTeamSelect();
   }
   if (!players.length) {
     console.error('PICK A PLAYER');
   }
 }
+
 
 const calculateScore = (event, target) => {
   event.preventDefault();
@@ -53,6 +56,19 @@ const calculateScore = (event, target) => {
     updateTeamData(activeTeam);
   }
 }
+
+const updateTeamSelect = () => {
+  const teamSelect = document.querySelectorAll('.active_team')[0];
+  teamSelect.innerHTML = '';
+
+  teams.forEach(item => {
+    const teamOption = document.createElement('option');
+    teamOption.value = item.id;
+    teamOption.innerText = `Team ${item.id}`;
+    teamSelect.appendChild(teamOption);
+  });
+}
+
 
 const updateTeamData = (activeTeam) => {
   activeTeam.players.forEach((player, index) => {
