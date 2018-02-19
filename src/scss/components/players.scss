@@ -4,16 +4,13 @@
   display: grid;
   justify-content: center;
   place-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   padding: 40px 0;
   grid-row-gap: 20px;
   background: $boxbg;
   color: $white;
   margin: 40px 0px 10px;
   @media (min-width: $tablet) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  @media (min-width: $desktop) {
     grid-template-columns: repeat(5, 1fr);
   }
   .controls {
@@ -58,7 +55,7 @@
       display: block
     }
     &__select {
-      padding: 20px;
+      padding: 10px;
       width: 100%;
       @media(min-width: $tablet) {
         width: 250px;
@@ -69,6 +66,10 @@
     }
   }
   .team {
+    grid-column: span 2;
+    @media(min-width: $tablet) {
+      grid-column: span 1;
+    }
     input[type="checkbox"] {
       display: none;
     }
