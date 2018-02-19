@@ -13,11 +13,12 @@
   @media (min-width: $tablet) {
     grid-template-columns: repeat(5, 1fr);
   }
-  .submit {
+  .create,
+  .delete {
     border: 2px solid black;
     padding: 20px;
     width: 80%;
-    margin-top: 20px;
+    margin: 20px;
     grid-column: span 2 / -1;
     grid-template-columns: 1fr fit-content(200px);
     text-transform: uppercase;
@@ -28,7 +29,7 @@
     @media(min-width: $tablet) {
       padding: 20px;
       width: 175px;
-      margin: 0 40px 0;
+      margin: 20px 40px;
       grid-column: span 1;
       grid-template-columns: none;
       align-self: baseline;
