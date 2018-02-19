@@ -4,14 +4,23 @@
   display: grid;
   justify-content: center;
   place-items: center;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   padding: 40px 0;
   grid-row-gap: 20px;
   background: $boxbg;
   color: $white;
   margin: 40px 0px 10px;
   @media (min-width: $tablet) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (min-width: $desktop) {
     grid-template-columns: repeat(5, 1fr);
+  }
+  .controls {
+    grid-column: span 5;
+    @media (min-width: $tablet) {
+      grid-column: inherit;
+    }
   }
   .create,
   .delete {
@@ -49,12 +58,14 @@
       display: block
     }
     &__select {
-      width: 250px;
-      padding: 30px;
+      padding: 20px;
+      width: 100%;
+      @media(min-width: $tablet) {
+        width: 250px;
+      }
       height: 50px;
       border: none;
       border-radius: 0;
-      text-indent: 80px;
     }
   }
   .team {
