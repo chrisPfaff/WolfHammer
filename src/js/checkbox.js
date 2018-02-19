@@ -39,7 +39,8 @@ function settingTeams(arr, target) {
   const players = Array.from(document.querySelectorAll('input:checked')).map(input => {
     return {
       id: input.id,
-      name: input.name
+      name: input.name,
+      score: 0
     };
   });
 
@@ -49,7 +50,6 @@ function settingTeams(arr, target) {
       score: 0,
       id: teams.length
     })
-    console.log(players)
   } else {
       console.log('delete', target.id);
       removeTeam(arr, target);
@@ -86,6 +86,45 @@ submit.addEventListener("click", (event) => {
   //   }
   // })
 });
+
+const scoreBoard = document.querySelector('.score');
+const dots = Array.from(document.querySelectorAll('.dots'));
+
+let score = 0;
+
+function calculateScore(event, target) {
+  event.preventDefault();
+  const current = event.target;
+  if (teams.length) {
+
+    const activeTeamID = teams.filter(team => team.players[0]);
+
+    // const {name, id} = activeTeamID.players;
+    // const { score } = activeTeamID;
+
+    // console.log(name, score, id);
+
+   // const activeTeamId = teams.filter(team => team.players[0]);
+    const activeTeam = activeTeamID.filter(team => team.id === activeTeamID[0].id)[0];
+
+    //activeTeam.score += `Score: ${score += Number(current.getAttribute('data-dot'))}`
+    // const activeTeamId = parseInt(document.querySelectorAll('#active-team')[0].value);
+    //activeTeam.score += parseInt(current.dataset.dot);
+    //activeTeam.innerHTML = `Score: ${score} += Number(current.getAttribute('data-dot'))}`
+    activeTeam.score += parseInt(current.dataset.dot);
+    updateTeamData(activeTeam);
+  }
+}
+
+dots.forEach(dot => dot.addEventListener('click', calculateScore));
+
+
+const updateTeamData = (activeTeam) => {
+  activeTeam.players.forEach((player, index) => {
+    document.querySelectorAll('.teamz')[index].innerHTML = `${player.name} has ${activeTeam.score} dots.`
+  })
+};
+
 
 
 // const teams = [];
