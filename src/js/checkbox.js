@@ -9,24 +9,18 @@ let teams = [];
 let score = 0;
 
 
-const addTeamsToDOM = (checkValue, parentElement) => {
+const checkboxDOMselect = (checkValue, parentElement) => {
   if (checkValue.checked) {
     var newElem = document.createElement('p');
-    var name = document.createTextNode(checkValue.name);
+    var name = document.createTextNode(`${checkValue.name} has 0 dots.`);
     newElem.classList.add('teamz');
     newElem.appendChild(name);
     parentElement.appendChild(newElem);
   } else if (!checkValue.checked) {
-    teamz.forEach(team => {
+    setTeams.childNodes.forEach(team => {
       if (checkValue.name === team.textContent) {
       parentElement.removeChild(team);
     }});
-  }
-}
-
-const removeTeamFromDOM = (arr, val) => {
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i] == val) arr.splice(i, 1);
   }
 }
 
@@ -69,9 +63,7 @@ const updateTeamData = (activeTeam) => {
 // EL's
 document.addEventListener("click", event => {
   if (!teams.includes(event.target) && event.target.matches("input")) {
-    addTeamsToDOM(event.target, setTeams);
-  } else {
-    removeTeamFromDOM(checkboxes, event.target);
+    checkboxDOMselect(event.target, setTeams);
   }
   return teams;
 });
