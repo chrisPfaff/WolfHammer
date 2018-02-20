@@ -58,7 +58,7 @@ const calculateScore = (event, target) => {
 }
 
 const updateTeamSelect = () => {
-  const teamSelect = document.querySelectorAll('.active_team')[0];
+  const teamSelect = document.querySelectorAll('.active_team__select')[0];
   teamSelect.innerHTML = '';
 
   teams.forEach(item => {

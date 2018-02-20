@@ -9,12 +9,13 @@
   grid-row-gap: 20px;
   background: $boxbg;
   color: $white;
-  margin: 40px 0px 10px;
+  margin: 40px 0px 60px;
   @media (min-width: $tablet) {
     grid-template-columns: repeat(5, 1fr);
   }
   .controls {
-    grid-column: span 5;
+    grid-column: 1 / span 5;
+    grid-column-start: auto;
     @media (min-width: $tablet) {
       grid-column: inherit;
     }
@@ -22,11 +23,8 @@
   .create,
   .delete {
     border: 2px solid black;
-    padding: 20px;
-    width: 80%;
-    margin: 20px;
-    grid-column: span 2 / -1;
-    grid-template-columns: 1fr fit-content(200px);
+    padding: 20px 40px;
+    width: 100%;
     text-transform: uppercase;
     transition: 0.3s ease;
     background-color: $white;
@@ -34,7 +32,7 @@
     font-weight: bold;
     @media(min-width: $tablet) {
       padding: 20px;
-      width: 175px;
+      width: 250px;
       margin: 20px 40px;
       grid-column: span 1;
       grid-template-columns: none;
@@ -49,20 +47,17 @@
     }
   }
   .active_team {
-    grid-column: span 5;
+    text-transform: uppercase;
+    grid-column: 1 / span 5;
     &__label {
       padding-bottom: 20px;
-      display: block
+      display: block;
     }
-    &__select {
-      padding: 10px;
-      width: 100%;
-      @media(min-width: $tablet) {
-        width: 250px;
+    select {
+      @include selectStyling;
+      &:focus {
+        @include selectDropDownActive;
       }
-      height: 50px;
-      border: none;
-      border-radius: 0;
     }
   }
   .team {
