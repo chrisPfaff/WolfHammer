@@ -23,7 +23,7 @@
 // }
 @mixin selectStyling {
   /* styling */
-  width: 210px;
+  width: 205px;
   background-color: white;
   border: thin solid black;
   border-radius: 0px;
@@ -52,4 +52,11 @@
   background-repeat: no-repeat;
   border-color: grey;
   outline: 0;
+}
+
+@mixin photoBackground($rule, $position) {
+  background: linear-gradient($photobg, $photobg),
+  url('img/#{$rule}.jpg');
+  background-size: cover;
+  background-position: $position;
 }

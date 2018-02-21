@@ -4,7 +4,14 @@ const checkboxes = document.querySelectorAll('input');
 const teamz = setTeams.querySelectorAll('.teamz');
 const scoreBoard = document.querySelector('.score');
 const dots = Array.from(document.querySelectorAll('.dots'));
-const teamSelect = document.querySelectorAll('.active_team')
+const teamSelect = document.querySelectorAll('.active_team');
+const names = document.querySelectorAll('.name');
+
+names.forEach(name => addEventListener('input', (event) => {
+  console.log(name.textContent);
+  name.textContent.replace(name, event.target);
+  //name.replace(name.innerHTML, event.target);
+}));
 
 let teams = [];
 let score = 0;
@@ -71,6 +78,7 @@ const updateTeamSelect = () => {
 
 
 const updateTeamData = (activeTeam) => {
+  console.log(activeTeam);
   activeTeam.players.forEach((player, index) => {
     document.querySelectorAll('.teamz')[index].innerHTML = `${player.name} has ${activeTeam.score} dots.`
   })
