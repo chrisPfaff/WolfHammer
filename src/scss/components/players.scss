@@ -9,6 +9,7 @@
   grid-row-gap: 20px;
   background: $boxbg;
   color: $white;
+  position: relative;
   margin: 40px 0px 60px;
   @media (min-width: $tablet) {
     grid-template-columns: repeat(5, 1fr);

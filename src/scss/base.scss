@@ -49,6 +49,11 @@ html {
 
 .container {
   padding: 20px 30px;
+  position: relative;
+  z-index: 1;
+  &::before {
+    @include grassBg;
+  }
   @media (min-width: $tablet) {
     padding: 20px 60px;
   }
@@ -132,9 +137,11 @@ html {
       }
     }
   }
-  footer {
-    padding: 40px;
-  }
+}
+
+footer {
+  padding: 40px;
+  background: url($grain);
 }
 
 .hide {
