@@ -1,1 +1,436 @@
-!function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,t),o.l=!0,o.exports}var n={};t.m=e,t.c=n,t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:r})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="",t(t.s=1)}([function(e,t){var n=document.querySelector(".create"),r=document.querySelector(".set_teams"),o=(document.querySelectorAll("input"),r.querySelectorAll(".teamz"),document.querySelector(".score"),Array.from(document.querySelectorAll(".dots")));document.querySelectorAll(".active_team");document.querySelectorAll(".name").forEach(function(e){return addEventListener("input",function(t){console.log(e.textContent),e.textContent.replace(e,t.target)})});var c=[],u=function(e,t){if(e.checked){var n=document.createElement("p"),o=document.createTextNode(e.name);n.classList.add("teamz"),n.appendChild(o),t.appendChild(n)}else e.checked||r.childNodes.forEach(function(n){e.name===n.textContent&&t.removeChild(n)})},i=function(e,t){var n=Array.from(document.querySelectorAll("input:checked")).map(function(e){return{id:e.id,name:e.name}});n.length&&(c.push({players:n,score:0,id:c.length}),l()),n.length||console.error("PICK A PLAYER")},a=function(e,t){e.preventDefault();var n=e.target;if(c.length){var r=c.filter(function(e){return e.players[0]}),o=r.filter(function(e){return e.id===r[0].id})[0];o.score+=parseInt(n.dataset.dot),f(o)}},l=function(){var e=document.querySelectorAll(".active_team__select")[0];e.innerHTML="",c.forEach(function(t){var n=document.createElement("option");n.value=t.id,n.innerText="Team ".concat(t.id),e.appendChild(n)})},f=function(e){console.log(e),e.players.forEach(function(t,n){document.querySelectorAll(".teamz")[n].innerHTML="".concat(t.name," has ").concat(e.score," dots.")})};document.addEventListener("click",function(e){return!c.includes(e.target)&&e.target.matches("input")&&u(e.target,r),c}),n.addEventListener("click",function(e){i(0,e.target.id)}),o.forEach(function(e){return e.addEventListener("click",a)})},function(e,t,n){e.exports=n(2)},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}r(n(3)),r(n(4)),r(n(0));n(5),n(6),n(7),n(8),function(e){e.keys().forEach(e)}(n(9)),console.log("The Wolf is coming!")},function(e,t,n){"use strict";function r(e,t){e.preventDefault();e.target}var o=(function(e){e&&e.__esModule}(n(0)),document.querySelector(".score"),Array.from(document.querySelectorAll(".dots")));o.forEach(function(e){return e.addEventListener("click",r)})},function(e,t){function n(){var e="opening",t="open";this.classList.toggle("active"),r.filter(function(n){if(n.classList.contains("active")){var r=[t,e];e=r[0],t=r[1]}})}var r=Array.from(document.querySelectorAll(".rule"));r.forEach(function(e){return e.addEventListener("click",n)})},function(e,t){},function(e,t){},function(e,t){},function(e,t){},function(e,t,n){function r(e){return n(o(e))}function o(e){var t=c[e];if(!(t+1))throw new Error("Cannot find module '"+e+"'.");return t}var c={"./bugler.jpg":10,"./saddam.jpg":11,"./sand.jpg":12,"./wolf.jpg":13};r.keys=function(){return Object.keys(c)},r.resolve=o,e.exports=r,r.id=9},function(e,t,n){e.exports=n.p+"./img/bugler.jpg"},function(e,t,n){e.exports=n.p+"./img/saddam.jpg"},function(e,t,n){e.exports=n.p+"./img/sand.jpg"},function(e,t,n){e.exports=n.p+"./img/wolf.jpg"}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+var createTeam = document.querySelector('.create');
+var setTeams = document.querySelector('.set_teams');
+var checkboxes = document.querySelectorAll('input');
+var teamz = setTeams.querySelectorAll('.teamz');
+var scoreBoard = document.querySelector('.score');
+var dots = Array.from(document.querySelectorAll('.dots'));
+var teamSelect = document.querySelectorAll('.active_team');
+var names = document.querySelectorAll('.name');
+names.forEach(function (name) {
+  return addEventListener('input', function (event) {
+    console.log(name.textContent);
+    name.textContent.replace(name, event.target); //name.replace(name.innerHTML, event.target);
+  });
+});
+var teams = [];
+var score = 0;
+
+var checkboxDOMselect = function checkboxDOMselect(checkValue, parentElement) {
+  if (checkValue.checked) {
+    var newElem = document.createElement('p'); //var name = document.createTextNode(`${checkValue.name} has 0 dots.`);
+
+    var name = document.createTextNode(checkValue.name);
+    newElem.classList.add('teamz');
+    newElem.appendChild(name);
+    parentElement.appendChild(newElem);
+  } else if (!checkValue.checked) {
+    setTeams.childNodes.forEach(function (team) {
+      if (checkValue.name === team.textContent) {
+        parentElement.removeChild(team);
+      }
+    });
+  }
+};
+
+var createTeams = function createTeams(arr, target) {
+  var players = Array.from(document.querySelectorAll('input:checked')).map(function (input) {
+    return {
+      id: input.id,
+      name: input.name
+    };
+  });
+
+  if (players.length) {
+    teams.push({
+      players: players,
+      score: 0,
+      id: teams.length
+    });
+    updateTeamSelect();
+  }
+
+  if (!players.length) {
+    console.error('PICK A PLAYER');
+  }
+};
+
+var calculateScore = function calculateScore(event, target) {
+  event.preventDefault();
+  var current = event.target;
+
+  if (teams.length) {
+    var activeTeamID = teams.filter(function (team) {
+      return team.players[0];
+    });
+    var activeTeam = activeTeamID.filter(function (team) {
+      return team.id === activeTeamID[0].id;
+    })[0];
+    activeTeam.score += parseInt(current.dataset.dot);
+    updateTeamData(activeTeam);
+  }
+};
+
+var updateTeamSelect = function updateTeamSelect() {
+  var teamSelect = document.querySelectorAll('.active_team__select')[0];
+  teamSelect.innerHTML = '';
+  teams.forEach(function (item) {
+    var teamOption = document.createElement('option');
+    teamOption.value = item.id;
+    teamOption.innerText = "Team ".concat(item.id);
+    teamSelect.appendChild(teamOption);
+  });
+};
+
+var updateTeamData = function updateTeamData(activeTeam) {
+  console.log(activeTeam);
+  activeTeam.players.forEach(function (player, index) {
+    document.querySelectorAll('.teamz')[index].innerHTML = "".concat(player.name, " has ").concat(activeTeam.score, " dots.");
+  });
+}; // EL's
+
+
+document.addEventListener("click", function (event) {
+  if (!teams.includes(event.target) && event.target.matches("input")) {
+    checkboxDOMselect(event.target, setTeams);
+  }
+
+  return teams;
+});
+createTeam.addEventListener("click", function (event) {
+  createTeams(checkboxes, event.target.id);
+});
+dots.forEach(function (dot) {
+  return dot.addEventListener('click', calculateScore);
+}); // const teams = [];
+// const updateTeamData = () => {
+//   document.querySelectorAll('#team-data')[0].innerHTML = JSON.stringify(teams);
+// }
+// const updateTeamSelect = () => {
+//   const teamSelect = document.querySelectorAll('#active-team')[0];
+//   teamSelect.innerHTML = '';
+//   teams.forEach(item => {
+//     const teamOption = document.createElement('option');
+//     teamOption.value = item.id;
+//     teamOption.innerText = `Team ${item.id}`;
+//     teamSelect.appendChild(teamOption);
+//   });
+// }
+// document.querySelectorAll('#create')[0].addEventListener('click', e => {
+//   const players = Array.from(document.querySelectorAll('input:checked')).map(input => { return { id: input.dataset.id, name: input.dataset.name }; });
+//   if (players.length) teams.push({
+//     players,
+//     score: 0,
+//     id: teams.length,
+//   });
+//   updateTeamData();
+//   updateTeamSelect();
+// });
+// BUTTONS
+// Array.from(document.querySelectorAll('.update-score')).forEach(item => {
+//   item.addEventListener('click', e => {
+//     if (teams.length) {
+//       const activeTeamId = parseInt(document.querySelectorAll('#active-team')[0].value);
+//       const activeTeam = teams.filter(team => team.id === activeTeamId)[0];
+//       activeTeam.score += parseInt(e.target.dataset.scoreMod);
+//       updateTeamData();
+//     }
+//   });
+// });
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(2);
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _score = _interopRequireDefault(__webpack_require__(3));
+
+var _rules = _interopRequireDefault(__webpack_require__(4));
+
+var _checkbox = _interopRequireDefault(__webpack_require__(0));
+
+__webpack_require__(5);
+
+__webpack_require__(6);
+
+__webpack_require__(7);
+
+__webpack_require__(8);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import wolfImage from '././img/wolf.jpg';
+// import sandy from '././img/sand.jpg'
+// import bugler from './.img/bugler.jpg'
+// import saddam from '././img/saddam.jpg';
+// imports all images
+function requireAll(image) {
+  image.keys().forEach(image);
+}
+
+requireAll(__webpack_require__(9));
+console.log('The Wolf is coming!');
+
+if (false) {
+  module.hot.accept();
+}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _checkbox = _interopRequireDefault(__webpack_require__(0));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var scoreBoard = document.querySelector('.score');
+var dots = Array.from(document.querySelectorAll('.dots'));
+var score = 0;
+
+function calculateScore(event, target) {
+  event.preventDefault();
+  var current = event.target; // if (teams.length) {
+  //   console.log(teams.length);
+  //   const activeTeamId = parseInt(document.querySelectorAll('#active-team')[0].value);
+  //   const activeTeam = teams.filter(team => team.id === activeTeamId)[0];
+  //   activeTeam.score += parseInt(e.target.dataset.scoreMod);
+  //   updateTeamData();
+  // }
+}
+
+dots.forEach(function (dot) {
+  return dot.addEventListener('click', calculateScore);
+}); // const updateTeamData = () => {
+//   document.querySelectorAll('#team-data')[0].innerHTML = JSON.stringify(teams);
+// };
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+var rules = Array.from(document.querySelectorAll('.rule'));
+
+function getRule() {
+  var first = 'opening';
+  var second = 'open';
+  this.classList.toggle('active');
+  rules.filter(function (rule) {
+    var active = rule.classList.contains('active');
+
+    if (active) {
+      var _ref = [second, first];
+      first = _ref[0];
+      second = _ref[1];
+    }
+  });
+}
+
+rules.forEach(function (rule) {
+  return rule.addEventListener('click', getRule);
+});
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./benhogan.jpg": 10,
+	"./boomerang.jpg": 11,
+	"./bugler.jpg": 12,
+	"./eagle.jpg": 13,
+	"./hammer.jpg": 14,
+	"./rattler.jpg": 15,
+	"./saddam.jpg": 16,
+	"./sand.jpg": 17,
+	"./treewhack.jpg": 18,
+	"./wasabi.jpg": 19,
+	"./wolf.jpg": 20
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 9;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/benhogan.jpg";
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/boomerang.jpg";
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/bugler.jpg";
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/eagle.jpg";
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/hammer.jpg";
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/rattler.jpg";
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/saddam.jpg";
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/sand.jpg";
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/treewhack.jpg";
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/wasabi.jpg";
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/wolf.jpg";
+
+/***/ })
+/******/ ]);
