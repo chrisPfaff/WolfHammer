@@ -162,3 +162,38 @@ footer {
   @include photoBackground(sand,
   50% 80%);
 }
+
+.hogan {
+  @include photoBackground(benhogan,
+  45% 10%);
+}
+
+.hammer {
+  @include photoBackground(hammer,
+  45% 10%);
+}
+
+.eagle {
+  @include photoBackground(eagle,
+  50% 20%);
+}
+
+.boomerang {
+  @include photoBackground(boomerang,
+  50% 20%);
+}
+
+.tree-whack {
+  @include photoBackground(treewhack,
+  30% 50%);
+}
+
+.rattler {
+  @include photoBackground(rattler,
+  30% 50%);
+}
+
+.wasabi {
+  @include photoBackground(wasabi,
+  30% 50%);
+}
